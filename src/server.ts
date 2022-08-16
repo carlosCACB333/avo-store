@@ -7,10 +7,11 @@ import { join } from 'path';
 import { config } from './config';
 import { router } from './router';
 import { handleErrors } from './utils/errors';
-
+import cors from 'cors';
 const app = express();
 const httpServer = http.createServer(app);
 
+app.use(cors());
 app.use(express.json());
 
 apoloServerInit(app, httpServer);
