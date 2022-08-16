@@ -2,14 +2,13 @@
   "name": "avo-store",
   "version": "1.0.0",
   "description": "this is a full stack proyect of node graphql",
-  "main": "dist/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server.ts",
     "build": "npm run clean &&  tsc --build && npm run copyFiles",
     "clean": "rimraf dist",
     "copyFiles": "copyfiles -f  src/schema.graphql  dist && copyfiles public/* dist",
-    "start": "node dist/server.js"
+    "start": "node ./dist/server.js"
   },
   "keywords": [
     "graphql",
