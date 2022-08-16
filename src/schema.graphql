@@ -1,0 +1,47 @@
+scalar DateTime
+
+type Atributes {
+  description: String
+  shape: String
+  hardiness: String
+  taste: String
+}
+
+interface BaseAvocado {
+  id: ID!
+  name: String!
+}
+
+type Avocado implements BaseAvocado {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String!
+  sku: String!
+  price: Float
+  image: String
+  atributes: Atributes
+}
+input AtributesInput {
+  description: String!
+  shape: String!
+  hardiness: String!
+  taste: String!
+}
+input CreateAvocadoInput {
+  name: String!
+  sku: String!
+  price: Float!
+  image: String!
+  atributes: AtributesInput!
+}
+
+type Query {
+  findAll(skip: Int, take: Int): [Avocado!]!
+  findOne(id: ID!): Avocado
+}
+
+type Mutation {
+  createAvocado(input: CreateAvocadoInput!): Avocado!
+}
